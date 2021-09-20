@@ -11,58 +11,43 @@ public class Personnage extends Creature {
 
     
     private String nom;
-    // Point de vie
-    //private int ptVie;
     // Point de mana (niveau de magie)
     private int ptMana;
-    // Pourcentage d'attaque
-    //private int pourcentageAtt;
-    // Pourcentage par?
-    //private int pourcetagePar;
     // Pourcentage de magie
     private int pourcentageMag;
     // Pourcentage resistance de magie
     private int ResistMag;
-    // Degree d'attage
-    //private int degAtt;
     // Dégats de magie 
     private int degMag;
+    // Distance d'attaque maximale
+    private int distAttMax;
     // Distance d'attque par la magie
     private int distAttMag;
-    // position
-    //private Point2D pos;
-    // ?????
-    private int ptPar;
 
     /**
-     * Constructeur avec plusieurs parametres de Personnage
-     *
-     * @param nom Nom du personnage
-     * @param ptV points vie
-     * @param ptM points mana (niveau de magie)
-     * @param pA pourcentage attaque
-     * @param pP pourcentage par?
-     * @param pM pourcentage magie
-     * @param rM pourcentage resistance magie
-     * @param dA degats d'attaque
-     * @param dM degats magie
-     * @param distMax distance d'attaque maximal
-     * @param pos position du personnage dans le monde
-     * @param ptPar ???????
+     * COnstructeur de la classe Personnage
+     * 
+     * @param nom
+     * @param ptV
+     * @param ptM
+     * @param pA
+     * @param pP
+     * @param pM
+     * @param rM
+     * @param dA
+     * @param dM
+     * @param distMax
+     * @param pos
+     * @param ptPar 
      */
     public Personnage(String nom, int ptV, int ptM, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos, int ptPar) {
-        super(ptV, pA, dA, pos);
+        super(ptV, pA, pP, dA, pos, ptPar);
         this.nom = nom;
-        //this.ptVie = ptV;
         this.ptMana = ptM;
-        //this.pourcentageAtt = pA;
-        //this.pourcetagePar = pP;
         this.pourcentageMag = pM;
         this.ResistMag = rM;
-        //this.degAtt = dA;
+        this.distAttMax = distMax;
         this.distAttMag = dM;
-        //this.pos = pos;
-        this.ptPar = ptPar;
     }
 
     /**
@@ -73,16 +58,11 @@ public class Personnage extends Creature {
     public Personnage(Personnage P) {
         super(P);
         this.nom = P.nom;
-        //this.ptVie = P.ptVie;
         this.ptMana = P.ptMana;
-        //this.pourcentageAtt = P.pourcentageAtt;
-        //this.pourcetagePar = P.pourcetagePar;
         this.pourcentageMag = P.pourcentageMag;
         this.ResistMag = P.ResistMag;
-        //this.degAtt = P.degAtt;
+        this.distAttMax = P.distAttMax;
         this.distAttMag = P.distAttMag;
-        //this.pos = new Point2D(P.pos);
-        this.ptPar = P.ptPar;
     }
 
     /**
@@ -90,16 +70,11 @@ public class Personnage extends Creature {
      */
     public Personnage() {
         this.nom = " ";
-        //this.ptVie = 0;
         this.ptMana = 0;
-        //this.pourcentageAtt = 0;
-        //this.pourcetagePar = 0;
         this.pourcentageMag = 0;
         this.ResistMag = 0;
-        //this.degAtt =  0;
         this.distAttMag =  0;
-        //this.pos = new  Point2D(0,0);
-        this.ptPar = 0;
+        this.distAttMax = 0;
     }
 
     // Definition des méthodes :
@@ -133,6 +108,10 @@ public class Personnage extends Creature {
         return degMag;
     }
 
+    public int getDistAttMax() {
+        return distAttMax;
+    }
+
     public int getDistAttMag() {
         return distAttMag;
     }
@@ -157,15 +136,13 @@ public class Personnage extends Creature {
         this.degMag = degMag;
     }
 
+    public void setDistAttMax(int distAttMax) {
+        this.distAttMax = distAttMax;
+    }
+
     public void setDistAttMag(int distAttMag) {
         this.distAttMag = distAttMag;
     }
 
-    public int getPtPar() {
-        return ptPar;
-    }
-
-    public void setPtPar(int ptPar) {
-        this.ptPar = ptPar;
-    }
+    
 }

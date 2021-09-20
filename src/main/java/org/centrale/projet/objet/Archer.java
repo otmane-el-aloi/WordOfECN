@@ -5,6 +5,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.Random;
+
 /**
  * Classe Archer : sous-classe de Personnage
  * @author Groupe 24
@@ -55,13 +57,28 @@ public class Archer extends Personnage {
     }
     
     // Definiton des methodes 
-    /**
-     * 
-     * @param c de type Creature
-     */
-    public void combattre(Creature c){
-        
+/**
+   * Combat à distance
+   *
+   * @param c Creature
+   */
+  public void combattre(Creature c) {
+    double distance = Point2D.distance(this.getPos(),c.getPos());
+    if (distance == 1) {
+      Random rInt = new Random();
+      if (rInt.nextInt(100) + 1 <= this.getPourcentageAtt()) {
+        this.nbFleches -= 1;
+        int damage;
+        damage = this.getDegAtt();
+        c.setPtVie(c.getPtVie() - damage);
+        System.out.println("Attaque réussi avec un dégat de: " + damage );
+      } else {
+        System.out.println(this.getNom() + ": attaque ratée!");
+      }
+    } else {
+      System.out.println(" Trop loin! Distance: " + distance);
     }
+  }
     // Definition des getters et des setters
     public int getNbFleches() {
         return nbFleches;

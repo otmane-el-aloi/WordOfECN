@@ -5,6 +5,7 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.Random;
 /**
  *
  * @author Groupe 24
@@ -13,6 +14,7 @@ public class Guerrier extends Personnage {
     
     // Definition des constructeurs 
     
+    private int ptPar;
     /**
      * Constructeur avec plusieurs parametres
      * @param nom Nom de l'Archer
@@ -30,6 +32,7 @@ public class Guerrier extends Personnage {
     
     public Guerrier(String nom, int ptV, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos, int ptPar) {
         super(nom, ptV, 0, pA, pP, pM, rM, dA, dM, distMax, pos, ptPar);
+        
     }
     
      /**
@@ -48,12 +51,31 @@ public class Guerrier extends Personnage {
     }
     
     // Definiton des methodes 
-    /**
-     * 
-     * @param c de type Creature
-     */
-    public void combattre(Creature c){
-        
+/**
+   * Combat contact
+   *
+   * @param c Creature
+   */
+  public void combattre(Creature c) {
+    double distance = Point2D.distance(this.getPos(),c.getPos());
+    if (distance == 1) {
+      Random rInt = new Random();
+      if (rInt.nextInt(100) + 1 <= this.getPourcentageAtt()) {
+        int damage = 0;
+        if (rInt.nextInt(100) + 1 > this.getPourcentagePar()){
+        damage = this.getDegAtt();
+        }
+        else{
+            Math.max(this.getDegAtt()-c.getPtPar(), 0);
+        }
+        c.setPtVie(c.getPtVie() - damage);
+        System.out.println("Attaque réussi avec un dégat de: " + damage );
+      } else {
+        System.out.println("attaque ratée!");
+      }
+    } else {
+      System.out.println(" Trop loin! Distance: " + distance);
     }
+  }
 
 }

@@ -16,24 +16,30 @@ public class Creature {
     private int ptVie;
     // Pourcentage d'attaque
     private int pourcentageAtt;
+    // Pourcentage de parage
+    private int pourcentagePar;
     // Degree D'attaque
     private int degAtt;
     // Position
     private Point2D pos;
+    //point de para
+    private int ptPar;
     
     /**
-     * Construteur d'un Creature
      * 
      * @param pV
      * @param pA
+     * @param pP
      * @param dA
      * @param pos 
      */
-    public Creature(int pV, int pA, int dA, Point2D pos) {
+    public Creature(int pV, int pA, int pP, int dA, Point2D pos, int ptPar) {
         this.ptVie = pV;
         this.pourcentageAtt = pA;
+        this.pourcentagePar = pP;
         this.degAtt = dA;
         this.pos = pos;
+        this.ptPar = ptPar;
     }
     /**
      * Constructeur avec un parametre
@@ -42,8 +48,10 @@ public class Creature {
     public Creature(Creature c) {
         this.ptVie = c.ptVie;
         this.pourcentageAtt = c.pourcentageAtt;
+        this.pourcentagePar = c.pourcentagePar;
         this.degAtt = c.degAtt;
         this.pos = new Point2D(c.pos);
+        this.ptPar = c.ptPar;
     }
     /**
      * Constructeur par defaut
@@ -51,11 +59,12 @@ public class Creature {
     public Creature() {
         this.ptVie = 0;
         this.pourcentageAtt = 0;
+        this.pourcentagePar = 0;
         this.degAtt = 0;
-        this.pos = new Point2D(0, 0);        
+        this.pos = new Point2D(0, 0);    
+        this.ptPar = 0;
     }
     
-
     // Definition des méthodes
     /**
      * Méthode deplace permet le déplacement d'un monstre
@@ -89,7 +98,8 @@ public class Creature {
         pos.affiche();
     }
     
-        // Definition des getters et setters : 
+    // Definition des getters et setters : 
+
     public int getPtVie() {
         return ptVie;
     }
@@ -98,6 +108,9 @@ public class Creature {
         return pourcentageAtt;
     }
 
+    public int getPourcentagePar() {
+        return pourcentagePar;
+    }
 
     public int getDegAtt() {
         return degAtt;
@@ -106,11 +119,10 @@ public class Creature {
     public Point2D getPos() {
         return pos;
     }
-
-    public void setPos(Point2D pos) {
-        this.pos = pos;
+    
+    public int getPtPar() {
+        return ptPar;
     }
-
     public void setPtVie(int ptVie) {
         this.ptVie = ptVie;
     }
@@ -119,7 +131,21 @@ public class Creature {
         this.pourcentageAtt = pourcentageAtt;
     }
 
+    public void setPourcentagePar(int pourcentagePar) {
+        this.pourcentagePar = pourcentagePar;
+    }
+
     public void setDegAtt(int degAtt) {
         this.degAtt = degAtt;
     }
+
+    public void setPos(Point2D pos) {
+        this.pos = pos;
+    }
+
+    public void setPtPar(int ptPar) {
+        this.ptPar = ptPar;
+    }
+    
+    
 }

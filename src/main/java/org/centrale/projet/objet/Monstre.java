@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package org.centrale.projet.objet;
-import java.util.Random;
+
 /**
  * Classe Monstre 
  * @author Groupe 24
@@ -23,7 +23,6 @@ public class Monstre extends Creature {
     // Position
     //private Point2D pos;
     //??
-    private int ptPar;
     // DEfinition des constructeurs
     
     /**
@@ -37,8 +36,7 @@ public class Monstre extends Creature {
      * @param ptPar 
      */
     public Monstre(int pV, int pA, int pP, int dA, Point2D pos, int ptPar) {
-        super(pV, pA, dA, pos);
-        this.ptPar = ptPar;
+        super(pV, pA, pP, dA, pos, ptPar);
     }
     /**
      * Constructeur avec un parametre
@@ -46,14 +44,12 @@ public class Monstre extends Creature {
      */
     public Monstre(Monstre m) {
         super(m);
-        this.ptPar = m.ptPar;
     }
     /**
      * Constructeur par defaut
      */
     public Monstre() {
         super(); 
-        this.ptPar = 0;
     }
 
     // Definition des méthodes
@@ -65,14 +61,4 @@ public class Monstre extends Creature {
         System.out.println("Le Monstre se situe dans la position : ");
         this.getPos().affiche();
     }
-    
-    // DEfinition des getters et setters
-
-    public int getPtPar() {
-        return ptPar;
-    }
-
-    public void setPtPar(int ptPar) {
-        this.ptPar = ptPar;
-    } 
 }
