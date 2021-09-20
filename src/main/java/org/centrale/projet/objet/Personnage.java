@@ -1,16 +1,19 @@
 package org.centrale.projet.objet;
 
 import java.util.Random;
+
 /**
  * Classe pour presenter les personnages d'un World
+ *
  * @author Groupe 24
  */
 public class Personnage {
-    // Nom du personnage
+
+
     private String nom;
     // Point de vie
     private int ptVie;
-    // Point de mana?
+    // Point de mana (niveau de magie)
     private int ptMana;
     // Pourcentage d'attaque
     private int pourcentageAtt;
@@ -22,30 +25,29 @@ public class Personnage {
     private int ResistMag;
     // Degree d'attage
     private int degAtt;
-    // Dégats de magie (niveau de magie)
+    // Dégats de magie 
     private int degMag;
     // Distance d'attque par la magie
     private int distAttMag;
     // position
     private Point2D pos;
-    
-   /**
-   * Constructeur Personnage
-   *
-   * @param nom     Nom du personnage
-   * @param ptV     points vie
-   * @param ptM     points mana (niveau de magie)
-   * @param pA      pourcentage attaque
-   * @param pP      pourcentage par?
-   * @param pM      pourcentage magie
-   * @param rM      pourcentage resistance magie
-   * @param dA      degats d'attaque
-   * @param dM      degats magie
-   * @param distMax distance d'attaque maximal
-   * @param pos     position du personnage dans le monde
-   */
-    
-    public Personnage(String nom, int ptV, int ptM, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos){
+
+    /**
+     * Constructeur Personnage
+     *
+     * @param nom Nom du personnage
+     * @param ptV points vie
+     * @param ptM points mana (niveau de magie)
+     * @param pA pourcentage attaque
+     * @param pP pourcentage par?
+     * @param pM pourcentage magie
+     * @param rM pourcentage resistance magie
+     * @param dA degats d'attaque
+     * @param dM degats magie
+     * @param distMax distance d'attaque maximal
+     * @param pos position du personnage dans le monde
+     */
+    public Personnage(String nom, int ptV, int ptM, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos) {
         this.nom = nom;
         this.ptVie = ptV;
         this.ptMana = ptM;
@@ -55,15 +57,15 @@ public class Personnage {
         this.ResistMag = rM;
         this.degAtt = dA;
         this.distAttMag = dM;
-        this.pos = pos; 
+        this.pos = pos;
     }
-    
-   /**
-   * Constructeur du Personnage à partir d'un objet personnage
-   *
-   * @param P objet Personnage
-   */
-    public Personnage(Personnage P){
+
+    /**
+     * Constructeur du Personnage à partir d'un objet personnage
+     *
+     * @param P objet Personnage
+     */
+    public Personnage(Personnage P) {
         this.nom = P.nom;
         this.ptVie = P.ptVie;
         this.ptMana = P.ptMana;
@@ -73,36 +75,46 @@ public class Personnage {
         this.ResistMag = P.ResistMag;
         this.degAtt = P.degAtt;
         this.distAttMag = P.distAttMag;
-        this.pos = P.pos; 
+        this.pos = P.pos;
     }
 
-   /**
-   * Constructeur vide
-   */
-    public Personnage(){}
-    
+    /**
+     * Constructeur vide
+     */
+    public Personnage() {
+        this.nom = " ";
+        this.ptVie = 0;
+        this.ptMana = 0;
+        this.pourcentageAtt = 0;
+        this.pourcetagePar = 0;
+        this.pourcentageMag = 0;
+        this.ResistMag = 0;
+        this.degAtt =  0;
+        this.distAttMag =  0;
+        this.pos = new  Point2D(0,0);
+    }
+
     // Definition des méthodes :
     /**
      * deplace permet de deplacer le personnage
      */
-    public void deplace(){
+    public void deplace() {
         Random rd = new Random();
         this.pos.setX(rd.nextInt(10));
         this.pos.setY(rd.nextInt(10));
     }
+
     /**
      * afficher les coordonnes du personnage
      */
-    public void affiche(){
+    public void affiche() {
         System.out.println("Le personnage se situe dans la position : ");
-        pos.affiche() ;
+        pos.affiche();
     }
-    
-    // Définition des getters et des setters
+
     public String getNom() {
         return nom;
     }
-    
 
     public int getPtVie() {
         return ptVie;
@@ -187,9 +199,5 @@ public class Personnage {
     public void setPos(Point2D pos) {
         this.pos = pos;
     }
-    
-}
-     
-    
-    
 
+}

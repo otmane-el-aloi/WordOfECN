@@ -16,6 +16,16 @@ public class Point2D {
     private int y;
 
     // méthodes et constructeurs :
+    public Point2D(int i, int j) {
+        x = i;
+        y = j;
+    }
+    
+    public Point2D(Point2D p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
+        
     public void setX(int valX) {
         x = valX;
     }
@@ -35,13 +45,7 @@ public class Point2D {
     public Point2D() {
     }
 
-    public Point2D(int i, int j) {
-        x = i;
-        y = j;
-    }
 
-    public Point2D(Point2D p) {
-    }
 
     public void affiche() {
         System.out.println("[" + x + "," + y + "]");
