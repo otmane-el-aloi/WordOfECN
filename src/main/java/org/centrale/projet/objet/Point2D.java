@@ -36,6 +36,24 @@ public class Point2D {
         this.y = p.y;
     }
     
+    /**
+     * affiche la position du point
+     */
+    public void affiche() {
+        System.out.println("[" + x + "," + y + "]");
+    }
+    
+    /**
+     * Cette méthode calcule la distance euclidienne entre deux points
+     * @param p1
+     * @param p2
+     * @return 
+     */
+    static double distance(Point2D p1, Point2D p2){
+        double distance = Math.sqrt(Math.pow(p1.x-p2.x, 2) + Math.pow(p1.y- p2.y, 2));
+        return distance;
+    }
+    
     // Definition des getters et setters
     public void setX(int valX) {
         x = valX;
@@ -54,12 +72,6 @@ public class Point2D {
     }
 
     public Point2D() {
-    }
-
-
-
-    public void affiche() {
-        System.out.println("[" + x + "," + y + "]");
     }
 
     public void translate(int dx, int dy) {

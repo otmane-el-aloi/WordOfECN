@@ -14,26 +14,13 @@ public class TestSeance2 {
         World WoE = new World();
         // Positionnement des protagonistes de maniere aleatoire :
         WoE.creeMondealea();
-        // Recopie de robin dans guillaumeT
-        WoE.guillaumeT = new Archer(WoE.robin);
         // Affichage des positions des protagonistes :
         System.out.println("******Les positions initiales des protagonistes*****");
-        WoE.robin.affiche();
-        WoE.guillaumeT.affiche();
-        WoE.peon.affiche();
-        WoE.bugs.affiche();
+        WoE.afficheWorld();        
         
         // Deplaçage des positions des protagonistes :
         System.out.println("******Les nouvelles positions des protagonistes apres deplacement******");
-        WoE.robin.deplace();
-        WoE.robin.affiche();
-        
-        WoE.guillaumeT.affiche();
-        
-        WoE.peon.deplace();
-        WoE.peon.affiche();
-        
-        WoE.bugs.deplace();
-        WoE.bugs.affiche();
+        WoE.tourDeJeu();
+        WoE.afficheWorld(); 
     }  
 }

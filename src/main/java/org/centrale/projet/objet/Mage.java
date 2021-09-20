@@ -6,17 +6,14 @@
 package org.centrale.projet.objet;
 
 /**
- * Classe Archer : sous-classe de Personnage
+ *
  * @author Groupe 24
  */
-public class Archer extends Personnage {
-    // Nombre de fleches
-    private int nbFleches;
-    
-    // Constructeurs avec plusieurs parametres
+public class Mage extends Personnage {
+    // Definition des constructeurs
     
     /**
-     * Constructeur Archer
+     * Constructeur avec plusieurs parametres
      * @param nom Nom de l'Archer
      * @param ptV points vie
      * @param pA pourcentage attaque
@@ -28,30 +25,25 @@ public class Archer extends Personnage {
      * @param distMax distance d'attaque maximal
      * @param pos position du personnage dans le monde
      * @param ptPar points de paries
-     * @param nbF nombre de fleshes
      */
     
-    public Archer(String nom, int ptV, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos, int ptPar, int nbF) {
+    public Mage(String nom, int ptV, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos, int ptPar) {
         super(nom, ptV, 0, pA, pP, pM, rM, dA, dM, distMax, pos, ptPar);
-        this.nbFleches = nbF;
     }
     
      /**
      * Constructeur de recopie d'Archer à partir d'un objet Archer
-     *
-     * @param a objet Archer
+     * @param m objet Mage
      */
-    public Archer(Archer a) {
-        super(a);
-        this.nbFleches = a.nbFleches;
+    public Mage(Mage m) {
+        super(m);
 
     }
     /**
-     * afficher les coordonnes d'un Archer
+     * Constructeur par defaut
      */
-    public Archer() {
+    public Mage() {
         super();
-        this.nbFleches = 0;
     }
     
     // Definiton des methodes 
@@ -61,14 +53,6 @@ public class Archer extends Personnage {
      */
     public void combattre(Creature c){
         
-    }
-    // Definition des getters et des setters
-    public int getNbFleches() {
-        return nbFleches;
-    }
-
-    public void setNbFleches(int nbFleches) {
-        this.nbFleches = nbFleches;
     }
 
 }

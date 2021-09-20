@@ -6,14 +6,13 @@
 package org.centrale.projet.objet;
 
 /**
- * classe Lapin : sous-classe de Monstre
+ *
  * @author Groupe 24
  */
-public class Lapin extends Monstre {
+public class Loup extends Monstre {
     // Definition des constructeurs
         /**
-     * Construteur avec plusieurs parametres d'un Lapin
-     * 
+     * Construteur avec plusieurs parametres d'un Loup
      * @param pV
      * @param pA
      * @param pP
@@ -21,20 +20,20 @@ public class Lapin extends Monstre {
      * @param pos 
      * @param ptPar 
      */
-    public Lapin(int pV, int pA, int pP, int dA, Point2D pos, int ptPar) {
+    public Loup(int pV, int pA, int pP, int dA, Point2D pos, int ptPar) {
         super(pV, pA, pP,dA, pos, ptPar);
     }
     /**
      * Constructeur avec un parametre
      * @param l : Objet loup
      */
-    public Lapin(Lapin l) {
+    public Loup(Loup l) {
         super(l);
     }
     /**
      * Constructeur par defaut
      */
-    public Lapin() {
+    public Loup() {
         super(); 
     }
 
@@ -44,7 +43,16 @@ public class Lapin extends Monstre {
      * Méthode affiche qui permet l'affichage d'un Monstre
      */
     public void affiche() {
-        System.out.println("Le lapin se situe dans la position : ");
+        System.out.println("Le loup se situe dans la position : ");
         this.getPos().affiche();
     }
+    
+    /**
+     * 
+     * @param c de type Creature
+     */
+    public void combattre(Creature c){
+        
+    }
+    
 }

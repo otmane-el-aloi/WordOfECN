@@ -11,41 +11,41 @@ package org.centrale.projet.objet;
  */
 
 public class Paysan extends Personnage{
-    // Definition des Constructeurs :
+    // Definition des constructeurs
+    
     /**
-     * Constructeur d'un personnage Paysan
-     * 
-     * @param nom
-     * @param pV
-     * @param pA
-     * @param pP
-     * @param pM
-     * @param rM
-     * @param dA
-     * @param dM
-     * @param distMax
-     * @param pos 
+     * Constructeur avec plusieurs parametres d'Archer
+     * @param nom Nom de l'Archer
+     * @param ptV points vie
+     * @param pA pourcentage attaque
+     * @param pP pourcentage par?
+     * @param pM pourcentage magie
+     * @param rM pourcentage resistance magie
+     * @param dA degats d'attaque
+     * @param dM degats magie
+     * @param distMax distance d'attaque maximal
+     * @param pos position du personnage dans le monde
+     * @param ptPar points de paries
      */
-    public Paysan(String nom, int pV, int pA, int pP, int pM, int rM, int dA, 
-            int dM, int distMax, Point2D pos){
-        super( nom, pV, 0, pA,  pP,  pM,  rM,  dA, dM,  distMax, pos);
+    
+    public Paysan(String nom, int ptV, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D pos, int ptPar) {
+        super(nom, ptV, 0, pA, pP, pM, rM, dA, dM, distMax, pos, ptPar);
     }
     
-    /** 
-     * Constructeur de recopie
-     * 
-     * @param p 
+     /**
+     * Constructeur de recopie d'Archer à partir d'un objet Archer
+     *
+     * @param p objet Paysan
      */
-    public Paysan(Paysan p){
+    public Paysan(Paysan p) {
         super(p);
+
     }
-    
     /**
-     * Constructeur par défaut
-     * 
+     * Constructeur par defaut
      */
-    
-    public Paysan(){
+    public Paysan() {
         super();
     }
+
 }
