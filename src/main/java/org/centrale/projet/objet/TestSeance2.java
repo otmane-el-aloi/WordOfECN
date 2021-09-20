@@ -9,17 +9,17 @@ package org.centrale.projet.objet;
  *
  * @author Groupe 24
  */
-public class TestSeance1 {
-    
+public class TestSeance2 {
     public static void main(String[] args){
         World WoE = new World();
-        
         // Positionnement des protagonistes de maniere aleatoire :
         WoE.creeMondealea();
-        
+        // Recopie de robin dans guillaumeT
+        WoE.guillaumeT = new Archer(WoE.robin);
         // Affichage des positions des protagonistes :
         System.out.println("******Les positions initiales des protagonistes*****");
         WoE.robin.affiche();
+        WoE.guillaumeT.affiche();
         WoE.peon.affiche();
         WoE.bugs.affiche();
         
@@ -28,12 +28,12 @@ public class TestSeance1 {
         WoE.robin.deplace();
         WoE.robin.affiche();
         
+        WoE.guillaumeT.affiche();
+        
         WoE.peon.deplace();
         WoE.peon.affiche();
         
         WoE.bugs.deplace();
         WoE.bugs.affiche();
-        
-    }
-    
+    }  
 }

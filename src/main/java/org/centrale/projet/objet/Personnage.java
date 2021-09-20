@@ -75,11 +75,11 @@ public class Personnage {
         this.ResistMag = P.ResistMag;
         this.degAtt = P.degAtt;
         this.distAttMag = P.distAttMag;
-        this.pos = P.pos;
+        this.pos = new Point2D(P.pos);
     }
 
     /**
-     * Constructeur vide
+     * Constructeur par defaut
      */
     public Personnage() {
         this.nom = " ";
@@ -96,22 +96,37 @@ public class Personnage {
 
     // Definition des méthodes :
     /**
-     * deplace permet de deplacer le personnage
+     * permet de deplacer personnage sur une case adjacente choisie aleatoirement
      */
     public void deplace() {
         Random rd = new Random();
-        this.pos.setX(rd.nextInt(10));
-        this.pos.setY(rd.nextInt(10));
+        boolean verf_x = false;
+        boolean verf_y = false;
+        while(!verf_x && !verf_y){
+            int direction_x = rd.nextInt(3) - 1;
+            int direction_y = rd.nextInt(3) - 1;
+            if ((direction_x!= 0) && (direction_y != 0)){
+                if ((0 <= this.pos.getX()+ direction_x) && (this.pos.getX()+ direction_x < 100)){
+                    this.pos.setX(this.pos.getX()+direction_x);
+                    verf_x = true;
+                } 
+                if ((0 <= this.pos.getY()+ direction_y) && (this.pos.getY()+ direction_y < 100)){
+                    this.pos.setY(this.pos.getY()+direction_y);
+                    verf_y = true;
+                }
+            }
+        }
     }
 
     /**
      * afficher les coordonnes du personnage
      */
     public void affiche() {
-        System.out.println("Le personnage se situe dans la position : ");
+        System.out.println("La position de "+this.getNom()+" est :");
         pos.affiche();
     }
-
+    
+    // Definition des getters et setters
     public String getNom() {
         return nom;
     }

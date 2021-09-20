@@ -8,18 +8,33 @@ package org.centrale.projet.objet;
 import java.util.Random;
 
 /**
- *
- * @author Otmane, Oussama
+ * Classe Word : definie les Protagonistes
+ * @author Groupe 24
  */
 public class World {
 
     // Définition des attributs
-    Archer robin = new Archer();
-    Paysan peon = new Paysan();
-    Lapin bugs = new Lapin();
+    // robin de type Archer
+    Archer robin;
+    // guillaumeT de type Archer
+    Archer guillaumeT;
+    // peon de type Paysan
+    Paysan peon;
+    // bugs de type Lapin
+    Lapin bugs;
 
     // Définition des constructeurs
+    /**
+     * Constructeur vide
+     */
     public World() {
+        this.robin = new Archer();
+        this.robin.setNom("Robin");
+        this.guillaumeT = new Archer();
+        this.guillaumeT.setNom("Robin");
+        this.peon = new Paysan();
+        this.peon.setNom("Peon");
+        this.bugs = new Lapin();
     }
 
     // Définition des méthodes
@@ -52,6 +67,7 @@ public class World {
              pB.setX(x + generateurRandom.nextInt(5));
              pB.setY(y - generateurRandom.nextInt(5));}
         bugs.setPos(pB);
+
     }
 }
 
