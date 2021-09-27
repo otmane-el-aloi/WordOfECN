@@ -77,15 +77,7 @@ public class Personnage extends Creature {
         this.distAttMax = 0;
     }
 
-    // Definition des méthodes :
-    /**
-     * afficher les coordonnes du personnage
-     */
-    public void affiche() {
-        System.out.println("La position de "+this.getNom()+" est :");
-        this.getPos().affiche();
-    }
-    
+
     // Definition des getters et setters
 
     public String getNom() {

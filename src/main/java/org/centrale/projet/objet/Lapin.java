@@ -31,7 +31,8 @@ public class Lapin extends Monstre {
         super(); 
     }
 
-    // Definition des méthodes
+    
+   
   /**
    * Combat corps à corps
    * 
@@ -63,7 +64,7 @@ public class Lapin extends Monstre {
      * Méthode affiche qui permet l'affichage d'un Monstre
      */
     public void affiche() {
-        System.out.println("Le lapin se situe dans la position : ");
-        this.getPos().affiche();
+        System.out.println("Je suis un lapin");
+        super.affiche();
     }
 }

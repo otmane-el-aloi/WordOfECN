@@ -44,9 +44,10 @@ public class Loup extends Monstre {
     /**
      * Méthode affiche qui permet l'affichage d'un Monstre
      */
+    @Override
     public void affiche() {
-        System.out.println("Le loup se situe dans la position : ");
-        this.getPos().affiche();
+        System.out.println("Je suis un Loup!");
+        super.affiche();
     }
     
   /**

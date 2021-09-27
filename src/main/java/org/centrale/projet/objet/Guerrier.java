@@ -50,6 +50,13 @@ public class Guerrier extends Personnage {
     }
     
     // Definiton des methodes 
+    
+    @Override
+    public void affiche(){
+        System.out.println("Je suis un guerrier!");
+        super.affiche();
+        
+    }
 /**
    * Combat corps à corps
    *

@@ -58,7 +58,7 @@ public class Monstre extends Creature {
      * Méthode affiche qui permet l'affichage d'un Monstre
      */
     public void affiche() {
-        System.out.println("Le Monstre se situe dans la position : ");
+        System.out.println("ma position est: ");
         this.getPos().affiche();
     }
 }

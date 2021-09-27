@@ -57,6 +57,13 @@ public class Archer extends Personnage {
     }
     
     // Definiton des methodes 
+    
+    @Override
+    public void affiche(){
+        System.out.println("Je suis un Archer!");
+        super.affiche();
+        
+    }
 /**
    * Combat à distance
    *

@@ -49,7 +49,14 @@ public class Paysan extends Personnage{
     public Paysan() {
         super();
     }
-    /**
+
+    @Override
+    public void affiche(){
+        System.out.println("Je suis un paysan!");
+        super.affiche();
+    }
+    
+    
   /**
    * Combat corps à corps
    * 

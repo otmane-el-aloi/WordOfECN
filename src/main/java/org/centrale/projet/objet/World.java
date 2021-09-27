@@ -14,10 +14,14 @@ import java.util.ArrayList;
  */
 public class World {
     
-    
+    // Dimension du monde
+    final static int DIMENSION = 50;
+    // nombreMaxCreature
     private int  nbMaxCreatures;
+    // Liste des creatures
     private ArrayList<Creature> listCreatures;
     private ArrayList<Objet> listObjets;
+    // Nombres des creatures crées
     public int nbPaysan;
     public int nbArcher;
     public int nbGuerrier;
@@ -30,6 +34,7 @@ public class World {
     /**
      * Constructeur 
      * @param nbCreatures
+     * @param dim
      */
     public World(int nbCreatures) {
         this.nbMaxCreatures = nbCreatures;
@@ -41,21 +46,24 @@ public class World {
         Random generateurRandom = new Random();
         listCreatures = new ArrayList<>();
         listObjets = new ArrayList<>();
-        for (int i=0; i<generateurRandom.nextInt(this.nbMaxCreatures);i++){
+        for (int i=0; i<this.nbMaxCreatures;i++){
             int choix = generateurRandom.nextInt(5);
             switch(choix){
                 case 0:
                     Archer archer = new Archer();
                     this.listCreatures.add(archer);
                     this.nbArcher +=1;
+
                 case 1:
                     Paysan paysan = new Paysan();
                     this.listCreatures.add(paysan); 
                     this.nbPaysan +=1;
+
                 case 2:
                     Lapin lapin = new Lapin();
                     this.listCreatures.add(lapin); 
                     this.nbLapin +=1;
+
                 case 3:
                     Guerrier guerrier = new Guerrier();
                     this.listCreatures.add(guerrier);
@@ -64,7 +72,9 @@ public class World {
                 case 4:
                     Loup loup = new Loup();
                     this.listCreatures.add(loup);
-                    this.nbLoup +=1;
+                
+                break;
+                    
             }
         }
 
@@ -100,26 +110,26 @@ public class World {
     }
     
     // Définition des méthodes
+    
     /**
+     * Calcul la position d'un protagoniste en tenant compte des conditions
      * 
-     * @param x
-     * @param y
      * @return 
      */
-    public Point2D computeInitialPos(int x, int y){
+    public Point2D computeInitialPos(){
         Random generateurRandom = new Random();
         boolean surposition = true;
-        // position du peon
-        Point2D pP = new Point2D(x + generateurRandom.nextInt(11)-5,  
-                y + generateurRandom.nextInt(11)-5);
+        // position du premier protagoniste
+        Point2D pP = new Point2D(generateurRandom.nextInt(World.DIMENSION),  
+                generateurRandom.nextInt(World.DIMENSION));
         while (surposition == true)
          for (int i=0; i<this.listCreatures.size()-1; i++){
             double distance;
             distance = Point2D.distance(pP, this.listCreatures.get(i).getPos());
             if (distance == 0){
                 surposition = true;
-                pP.setX(x + generateurRandom.nextInt(11)-5);
-                pP.setY(y + generateurRandom.nextInt(11)-5);
+                pP.setX(generateurRandom.nextInt(World.DIMENSION));
+                pP.setY(generateurRandom.nextInt(World.DIMENSION));
                 break;
             }
             else {
@@ -129,29 +139,18 @@ public class World {
         return pP;
     }
     
+    
     /**
      * creeMondealea permet d'initialiser les positions des creatures
      */
-    /*
     public void creeMondealea() {
-        
-        Random generateurRandom = new Random();
         // initialisation des positions : notre monde a les limites suivantes : [0, 100]
-        int max_pos = 100 - 5 ;
-        int min_pos =  5;
-        Point2D pR = new Point2D(generateurRandom.nextInt(max_pos-min_pos +1) +
-        min_pos, generateurRandom.nextInt(max_pos - min_pos + 1) + min_pos);
-        this.listCreatures.get(0).setPos(pR);
-        int x  = this.listCreatures.get(0).getPos().getX();
-        int y = this.listCreatures.get(0).getPos().getY();
-        
-        for (int i=1; i<this.listCreatures.size(); i++){
-                this.listCreatures.get(i).setPos(computeInitialPos(x, y));
+        for (int i=0; i<this.listCreatures.size(); i++){
+                this.listCreatures.get(i).setPos(computeInitialPos());
             }
         }
-    */
-    // Getters & Setters
 
+    // Getters & Setters
     public int getNbMaxCreatures() {
         return nbMaxCreatures;
     }
@@ -175,9 +174,10 @@ public class World {
     public void setListObjets(ArrayList<Objet> listObjets) {
         this.listObjets = listObjets;
     }
-    
-    
-    
+
+    public static int getDimension() {
+        return DIMENSION;
+    }
     
     
 }

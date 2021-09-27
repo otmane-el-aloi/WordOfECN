@@ -96,7 +96,7 @@ public class Creature {
      * Méthode affiche qui permet l'affichage d'un Monstre
      */
     public void affiche() {
-        System.out.println("Creature se situe dans la position : ");
+        System.out.println("ma position est : ");
         pos.affiche();
     }
     
