@@ -64,7 +64,11 @@ public class Archer extends Personnage {
    */
   public void combattre(Creature c) {
     double distance = Point2D.distance(this.getPos(),c.getPos());
-    if (distance == 1) {
+    if (this.getNbFleches() == 0){
+        System.out.print("Plus de flèches!");
+    }
+    if (distance > 1 && distance <= this.getDistAttMax()) {
+      this.nbFleches -=1;
       Random rInt = new Random();
       if (rInt.nextInt(100) + 1 <= this.getPourcentageAtt()) {
         this.nbFleches -= 1;
@@ -73,7 +77,7 @@ public class Archer extends Personnage {
         c.setPtVie(c.getPtVie() - damage);
         System.out.println("Attaque réussi avec un dégat de: " + damage );
       } else {
-        System.out.println(this.getNom() + ": attaque ratée!");
+        System.out.println("attaque ratée!");
       }
     } else {
       System.out.println(" Trop loin! Distance: " + distance);

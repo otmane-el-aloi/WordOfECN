@@ -26,12 +26,14 @@ public class Creature {
     private int ptPar;
     
     /**
+     * Constructeur de la classe Creature
      * 
      * @param pV
      * @param pA
      * @param pP
      * @param dA
-     * @param pos 
+     * @param pos
+     * @param ptPar 
      */
     public Creature(int pV, int pA, int pP, int dA, Point2D pos, int ptPar) {
         this.ptVie = pV;

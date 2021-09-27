@@ -8,7 +8,6 @@ import java.util.Random;
  * @author Groupe 24
  */
 public class Personnage extends Creature {
-
     
     private String nom;
     // Point de mana (niveau de magie)
@@ -16,7 +15,7 @@ public class Personnage extends Creature {
     // Pourcentage de magie
     private int pourcentageMag;
     // Pourcentage resistance de magie
-    private int ResistMag;
+    private int pourcentageResistMag;
     // Dégats de magie 
     private int degMag;
     // Distance d'attaque maximale
@@ -25,7 +24,8 @@ public class Personnage extends Creature {
     private int distAttMag;
 
     /**
-     * COnstructeur de la classe Personnage
+     * 
+     * Constructeur Personnage
      * 
      * @param nom
      * @param ptV
@@ -45,7 +45,7 @@ public class Personnage extends Creature {
         this.nom = nom;
         this.ptMana = ptM;
         this.pourcentageMag = pM;
-        this.ResistMag = rM;
+        this.pourcentageResistMag = rM;
         this.distAttMax = distMax;
         this.distAttMag = dM;
     }
@@ -60,7 +60,7 @@ public class Personnage extends Creature {
         this.nom = P.nom;
         this.ptMana = P.ptMana;
         this.pourcentageMag = P.pourcentageMag;
-        this.ResistMag = P.ResistMag;
+        this.pourcentageResistMag = P.pourcentageResistMag;
         this.distAttMax = P.distAttMax;
         this.distAttMag = P.distAttMag;
     }
@@ -72,7 +72,7 @@ public class Personnage extends Creature {
         this.nom = " ";
         this.ptMana = 0;
         this.pourcentageMag = 0;
-        this.ResistMag = 0;
+        this.pourcentageResistMag = 0;
         this.distAttMag =  0;
         this.distAttMax = 0;
     }
@@ -100,8 +100,8 @@ public class Personnage extends Creature {
         return pourcentageMag;
     }
 
-    public int getResistMag() {
-        return ResistMag;
+    public int getPourcentageResistMag() {
+        return pourcentageResistMag;
     }
 
     public int getDegMag() {
@@ -128,9 +128,10 @@ public class Personnage extends Creature {
         this.pourcentageMag = pourcentageMag;
     }
 
-    public void setResistMag(int ResistMag) {
-        this.ResistMag = ResistMag;
+    public void setPourcentageResistMag(int pourcentageResistMag) {
+        this.pourcentageResistMag = pourcentageResistMag;
     }
+
 
     public void setDegMag(int degMag) {
         this.degMag = degMag;
