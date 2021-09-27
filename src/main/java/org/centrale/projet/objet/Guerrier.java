@@ -51,7 +51,7 @@ public class Guerrier extends Personnage {
     
     // Definiton des methodes 
 /**
-   * Combat contact
+   * Combat corps à corps
    *
    * @param c Creature
    */

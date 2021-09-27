@@ -22,5 +22,8 @@ public class TestSeance2 {
         System.out.println("******Les nouvelles positions des protagonistes apres deplacement******");
         WoE.tourDeJeu();
         WoE.afficheWorld(); 
+        Guerrier groBill = WoE.getGroBill();
+        Archer robin = WoE.getRobin();
+        groBill.combattre(robin);
     }  
 }

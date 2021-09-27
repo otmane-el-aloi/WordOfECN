@@ -6,73 +6,105 @@
 package org.centrale.projet.objet;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * Classe Word : definie les Protagonistes
  * @author Groupe 24
  */
 public class World {
-    static final int nbCreature = 8;
     
-    // Définition des attributs
-    // robin de type Archer
-    private Archer robin;
-    // peon de type Paysan
-    private Paysan peon;
-    // bugs1 et bugs2 de type Lapin
-    private Lapin bugs1;
-    private Lapin bugs2;
-    // guillaumeT de type Archer
-    private Archer guillaumeT;
-    // groBill de type Guerrier
-    private Guerrier groBill;
-    // merlin de type Mage 
-    private Mage merlin;
-    // wolfie de type Loop
-    private Loup wolfie;
-    // Liste de tous les creqtures
-    private Creature[] listToutCreature;
+    
+    private int  nbMaxCreatures;
+    private ArrayList<Creature> listCreatures;
+    private ArrayList<Objet> listObjets;
+    public int nbPaysan;
+    public int nbArcher;
+    public int nbGuerrier;
+    public int nbLapin;
+    public int nbLoup;
+
+    
     
     // Définition des constructeurs
     /**
-     * Constructeur vide
+     * Constructeur 
+     * @param nbCreatures
      */
-    public World() {
-       
-        this.listToutCreature = new Creature[nbCreature];
-        this.robin = new Archer();
-        this.listToutCreature[0] = this.robin;
-        this.robin.setNom("Robin");
-        this.peon = new Paysan();
-        this.listToutCreature[1] = this.peon;
-        this.peon.setNom("Peon");
-        this.bugs1 = new Lapin();
-        this.listToutCreature[2] = this.bugs1;
-        this.bugs2 = new Lapin();
-        this.listToutCreature[3] = this.bugs2;
-        this.guillaumeT = new Archer();
-        this.listToutCreature[4] = this.guillaumeT;
-        this.guillaumeT.setNom("guillaumeT");
-        this.groBill = new Guerrier();
-        this.listToutCreature[5] = this.groBill;
-        this.groBill.setNom("GroBill");
-        this.merlin = new Mage();
-        this.listToutCreature[6] = this.merlin;
-        this.merlin.setNom("Merlin");
-        this.wolfie = new Loup();
-        this.listToutCreature[7] = this.wolfie;
-    }
+    public World(int nbCreatures) {
+        this.nbMaxCreatures = nbCreatures;
+        this.nbPaysan = 0;
+        this.nbArcher = 0;
+        this.nbGuerrier = 0;
+        this.nbLapin = 0;
+        this.nbLoup = 0;
+        Random generateurRandom = new Random();
+        listCreatures = new ArrayList<>();
+        listObjets = new ArrayList<>();
+        for (int i=0; i<generateurRandom.nextInt(this.nbMaxCreatures);i++){
+            int choix = generateurRandom.nextInt(5);
+            switch(choix){
+                case 0:
+                    Archer archer = new Archer();
+                    this.listCreatures.add(archer);
+                    this.nbArcher +=1;
+                case 1:
+                    Paysan paysan = new Paysan();
+                    this.listCreatures.add(paysan); 
+                    this.nbPaysan +=1;
+                case 2:
+                    Lapin lapin = new Lapin();
+                    this.listCreatures.add(lapin); 
+                    this.nbLapin +=1;
+                case 3:
+                    Guerrier guerrier = new Guerrier();
+                    this.listCreatures.add(guerrier);
+                    this.nbGuerrier +=1;
+              
+                case 4:
+                    Loup loup = new Loup();
+                    this.listCreatures.add(loup);
+                    this.nbLoup +=1;
+            }
+        }
 
+    }
+    /**
+     * Constructeur de recopie
+     * 
+     * @param w 
+     */
+    public World(World w){
+         this.nbMaxCreatures = w.nbMaxCreatures;
+         this.nbMaxCreatures = w.nbMaxCreatures;
+         this.listObjets = w.listObjets;
+         this.nbPaysan = w.nbPaysan;
+         this.nbArcher = w.nbArcher;
+         this.nbGuerrier = w.nbGuerrier;
+         this.nbLapin = w.nbLapin;
+         this.nbLoup = w.nbLoup;
+    }
+    
+    /**
+     * Constructeurs vides 
+     * 
+     */
+    public World(){
+        this.listCreatures = new ArrayList<>();
+        this.listObjets = new ArrayList<>();
+        this.nbPaysan = 0;
+        this.nbArcher = 0;
+        this.nbGuerrier = 0;
+        this.nbLapin = 0;
+        this.nbLoup = 0;
+    }
+    
     // Définition des méthodes
     /**
-     * This functions computes the initial position of a new personnage 
-     * that repects the maximal distance of 5 between Personnage already 
-     * initialized in the World. It makes sure that the new position is not already 
-     * taken by another Personnage in the World.
      * 
      * @param x
      * @param y
-     * @return Intial position of Personnage caracter that respect the conditions
+     * @return 
      */
     public Point2D computeInitialPos(int x, int y){
         Random generateurRandom = new Random();
@@ -81,9 +113,9 @@ public class World {
         Point2D pP = new Point2D(x + generateurRandom.nextInt(11)-5,  
                 y + generateurRandom.nextInt(11)-5);
         while (surposition == true)
-         for (int i=0; i<8; i++){
+         for (int i=0; i<this.listCreatures.size()-1; i++){
             double distance;
-            distance = Point2D.distance(pP, this.listToutCreature[i].getPos());
+            distance = Point2D.distance(pP, this.listCreatures.get(i).getPos());
             if (distance == 0){
                 surposition = true;
                 pP.setX(x + generateurRandom.nextInt(11)-5);
@@ -100,128 +132,57 @@ public class World {
     /**
      * creeMondealea permet d'initialiser les positions des creatures
      */
+    /*
     public void creeMondealea() {
+        
         Random generateurRandom = new Random();
         // initialisation des positions : notre monde a les limites suivantes : [0, 100]
-        // position du robin
         int max_pos = 100 - 5 ;
         int min_pos =  5;
         Point2D pR = new Point2D(generateurRandom.nextInt(max_pos-min_pos +1) +
-                min_pos, generateurRandom.nextInt(max_pos - min_pos + 1) + min_pos);
-        robin.setPos(pR);
-        int x  = robin.getPos().getX();
-        int y = robin.getPos().getY();
+        min_pos, generateurRandom.nextInt(max_pos - min_pos + 1) + min_pos);
+        this.listCreatures.get(0).setPos(pR);
+        int x  = this.listCreatures.get(0).getPos().getX();
+        int y = this.listCreatures.get(0).getPos().getY();
         
-        // Initialize peon's postion
-        this.robin.setPos(computeInitialPos(x,y));
-        this.peon.setPos(computeInitialPos(x,y));
-        this.bugs1.setPos(computeInitialPos(x,y));
-        this.bugs2.setPos(computeInitialPos(x,y));
-        this.guillaumeT.setPos(computeInitialPos(x,y));
-        this.groBill.setPos(computeInitialPos(x,y));
-        this.merlin.setPos(computeInitialPos(x,y));
-        this.wolfie.setPos(computeInitialPos(x,y));
+        for (int i=1; i<this.listCreatures.size(); i++){
+                this.listCreatures.get(i).setPos(computeInitialPos(x, y));
+            }
+        }
+    */
+    // Getters & Setters
+
+    public int getNbMaxCreatures() {
+        return nbMaxCreatures;
+    }
+
+    public ArrayList<Creature> getListCreatures() {
+        return listCreatures;
+    }
+
+    public ArrayList<Objet> getListObjets() {
+        return listObjets;
+    }
+
+    public void setNbMaxCreatures(int nbMaxCreatures) {
+        this.nbMaxCreatures = nbMaxCreatures;
+    }
+
+    public void setListCreatures(ArrayList<Creature> listCreatures) {
+        this.listCreatures = listCreatures;
+    }
+
+    public void setListObjets(ArrayList<Objet> listObjets) {
+        this.listObjets = listObjets;
     }
     
-    public void tourDeJeu(){
-        this.getRobin().deplace();
-        this.getPeon().deplace();
-        this.getBugs1().deplace();
-        this.getBugs2().deplace();
-        this.getGuillaumeT().deplace();
-        this.getGroBill().deplace();
-        this.getMerlin().deplace();
-        this.getWolfie().deplace();
-    }
     
-    /**
-     * affiche permet d'afficher les positions des creatures
-     */
-    public void afficheWorld(){
-        this.getRobin().affiche();
-        this.getPeon().affiche();
-        this.getBugs1().affiche();
-        this.getBugs2().affiche();
-        this.getGuillaumeT().affiche();
-        this.getGroBill().affiche();
-        this.getMerlin().affiche();
-        this.getWolfie().affiche();
-    }
     
-    //Definition des getters et setters
-
-    public Archer getRobin() {
-        return robin;
-    }
-
-    public Paysan getPeon() {
-        return peon;
-    }
-
-    public Lapin getBugs1() {
-        return bugs1;
-    }
-
-    public Lapin getBugs2() {
-        return bugs2;
-    }
-
-    public Archer getGuillaumeT() {
-        return guillaumeT;
-    }
-
-    public Guerrier getGroBill() {
-        return groBill;
-    }
-
-    public Mage getMerlin() {
-        return merlin;
-    }
-
-    public Loup getWolfie() {
-        return wolfie;
-    }
-
-    public Creature[] getListToutCreature() {
-        return listToutCreature;
-    }
-
-    public void setRobin(Archer robin) {
-        this.robin = robin;
-    }
-
-    public void setPeon(Paysan peon) {
-        this.peon = peon;
-    }
-
-    public void setBugs1(Lapin bugs1) {
-        this.bugs1 = bugs1;
-    }
-
-    public void setBugs2(Lapin bugs2) {
-        this.bugs2 = bugs2;
-    }
-
-    public void setGuillaumeT(Archer guillaumeT) {
-        this.guillaumeT = guillaumeT;
-    }
-
-    public void setGroBill(Guerrier groBill) {
-        this.groBill = groBill;
-    }
-
-    public void setMerlin(Mage merlin) {
-        this.merlin = merlin;
-    }
-
-    public void setWolfie(Loup wolfie) {
-        this.wolfie = wolfie;
-    }
-
-    public void setListToutCreature(Creature[] listToutCreature) {
-        this.listToutCreature = listToutCreature;
-    }
+    
     
 }
+    
+   
+    
 
 

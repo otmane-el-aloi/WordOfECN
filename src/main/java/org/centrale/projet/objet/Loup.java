@@ -49,22 +49,22 @@ public class Loup extends Monstre {
         this.getPos().affiche();
     }
     
-/**
-   * Combat contact
-   *
-   * @param c Creature
+  /**
+   * Combat corps à corps
+   * 
+   * @param c 
    */
   public void combattre(Creature c) {
     double distance = Point2D.distance(this.getPos(),c.getPos());
     if (distance == 1) {
       Random rInt = new Random();
       if (rInt.nextInt(100) + 1 <= this.getPourcentageAtt()) {
-        int damage;
+        int damage = 0;
         if (rInt.nextInt(100) + 1 > this.getPourcentagePar()){
         damage = this.getDegAtt();
         }
         else{
-            damage = Math.max(this.getDegAtt()-c.getPtPar(), 0);
+            Math.max(this.getDegAtt()-c.getPtPar(), 0);
         }
         c.setPtVie(c.getPtVie() - damage);
         System.out.println("Attaque réussi avec un dégat de: " + damage );

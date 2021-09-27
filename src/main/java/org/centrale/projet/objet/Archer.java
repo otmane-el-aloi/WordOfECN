@@ -71,7 +71,6 @@ public class Archer extends Personnage {
       this.nbFleches -=1;
       Random rInt = new Random();
       if (rInt.nextInt(100) + 1 <= this.getPourcentageAtt()) {
-        this.nbFleches -= 1;
         int damage;
         damage = this.getDegAtt();
         c.setPtVie(c.getPtVie() - damage);
@@ -83,6 +82,7 @@ public class Archer extends Personnage {
       System.out.println(" Trop loin! Distance: " + distance);
     }
   }
+  
     // Definition des getters et des setters
     public int getNbFleches() {
         return nbFleches;
