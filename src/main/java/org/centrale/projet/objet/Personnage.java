@@ -9,18 +9,33 @@ import java.util.Random;
  */
 public class Personnage extends Creature {
     
+    /**
+     * nom de l'instance personnage
+     */
     private String nom;
-    // Point de mana (niveau de magie)
+    /**
+     * Point de mana (niveau de magie)
+     */
     private int ptMana;
-    // Pourcentage de magie
+    /**
+     * Pourcentage de magie
+     */
     private int pourcentageMag;
-    // Pourcentage resistance de magie
+    /**
+     * Pourcentage resistance de magie
+     */
     private int pourcentageResistMag;
-    // Dégats de magie 
+    /**
+     * Dégats de magie 
+     */
     private int degMag;
-    // Distance d'attaque maximale
+    /**
+     * Distance d'attaque maximale
+     */
     private int distAttMax;
-    // Distance d'attque par la magie
+    /**
+     * Distance d'attque par la magie
+     */
     private int distAttMag;
 
     /**
@@ -79,7 +94,6 @@ public class Personnage extends Creature {
 
 
     // Definition des getters et setters
-
     public String getNom() {
         return nom;
     }

@@ -10,5 +10,8 @@ package org.centrale.projet.objet;
  * @author Groupe 24
  */
 public class Objet {
+
+    public Objet() {
+    }
     
 }

@@ -7,8 +7,12 @@ package org.centrale.projet.objet;
 
 /**
  * Class Potion
+ *
  * @author Groupe 24
  */
-public class Potion extends Objet{
-    
+public class Potion extends Objet {
+
+    public Potion() {
+    }
+
 }

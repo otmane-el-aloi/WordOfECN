@@ -7,8 +7,12 @@ package org.centrale.projet.objet;
 
 /**
  * Class Soin
+ *
  * @author Groupe 24
  */
-public class Soin extends Potion{
-    
+public class Soin extends Potion {
+
+    public Soin() {
+    }
+
 }
