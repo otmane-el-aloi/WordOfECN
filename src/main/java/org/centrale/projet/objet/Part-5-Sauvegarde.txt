@@ -1,0 +1,19 @@
+Largeur 25
+Hauteur 25
+Loup 7 14 0 1 17 23 24 
+Archer Archer 11 4 0 8 1 2 18 0 7 16 11 12 
+Lapin 24 7 17 9 18 5 3 
+Loup 0 19 7 10 11 22 8 
+Lapin 27 5 4 15 13 16 21 
+Lapin 12 9 11 0 17 2 5 
+Paysan Paysan 24 10 10 5 7 12 16 0 14 17 18 8 
+Guerrier Guerrier 16 19 19 4 15 3 4 0 5 5 8 18 
+Mage Personnage 27 6 11 17 17 1 18 0 9 2 22 7 
+Loup 22 6 2 10 10 22 2 
+NuageToxique 0 11 19 12 14 10 
+Mana 10 19 16 
+Soin 10 24 9 
+Mana 10 13 9 
+Mana 10 22 1 
+Soin 10 12 7 
+Joueur Archer WARRIOR 41 0 47 34 32 21 17 0 39 45 2 13 

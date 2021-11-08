@@ -7,12 +7,36 @@ package org.centrale.projet.objet;
 
 /**
  * Class Potion
- *
  * @author Groupe 24
  */
-public class Potion extends Objet {
-
-    public Potion() {
+public abstract class Potion extends Objet{
+    // DEfinition des constructeur
+    /**
+     * Constructeur avec un parametre
+     * @param pos : position de la Potion
+     */
+    public Potion(Point2D pos) {
+        super(pos);
     }
-
+    /**
+     * Constructeur de recopie
+     * @param p : Objet de type Potion
+     */
+    public Potion(Potion p) {
+        super(p);
+    }
+    /**
+     * constructeur par default
+     */
+    public Potion() {
+        super();
+    }
+    // Definition des methodes
+    /**
+     * affiche le nom et la position de Potion
+     */
+    public void affiche(){
+        System.out.println("Je suis Potion");
+        this.getPos().affiche();
+    }
 }
